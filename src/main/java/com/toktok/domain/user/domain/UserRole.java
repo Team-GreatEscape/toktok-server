@@ -1,4 +1,4 @@
-package com.jmo.jwttemplate.domain.user.domain;
+package com.toktok.domain.user.domain;
 
 public enum UserRole {
     USER,

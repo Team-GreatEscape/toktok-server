@@ -1,9 +1,9 @@
-package com.jmo.jwttemplate.global.security.details;
+package com.toktok.global.security.details;
 
-import com.jmo.jwttemplate.domain.user.domain.User;
-import com.jmo.jwttemplate.domain.user.error.UserError;
-import com.jmo.jwttemplate.domain.user.repository.UserRepository;
-import com.jmo.jwttemplate.global.error.CustomException;
+import com.toktok.domain.user.domain.User;
+import com.toktok.domain.user.error.UserError;
+import com.toktok.domain.user.repository.UserRepository;
+import com.toktok.global.error.CustomException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

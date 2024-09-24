@@ -1,4 +1,4 @@
-package com.jmo.jwttemplate.domain.auth.dto.request;
+package com.toktok.domain.auth.dto.request;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

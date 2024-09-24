@@ -1,6 +1,6 @@
-package com.jmo.jwttemplate.domain.user.error;
+package com.toktok.domain.user.error;
 
-import com.jmo.jwttemplate.global.error.CustomError;
+import com.toktok.global.error.CustomError;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 

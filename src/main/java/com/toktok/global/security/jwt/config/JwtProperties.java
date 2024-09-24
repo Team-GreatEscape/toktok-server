@@ -1,4 +1,4 @@
-package com.jmo.jwttemplate.global.security.jwt.config;
+package com.toktok.global.security.jwt.config;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,15 +1,17 @@
-package com.jmo.jwttemplate.domain.auth.controller;
+package com.toktok.domain.auth.controller;
 
-import com.jmo.jwttemplate.domain.auth.dto.request.LoginRequest;
-import com.jmo.jwttemplate.domain.auth.dto.request.ReissueRequest;
-import com.jmo.jwttemplate.domain.auth.dto.request.SignUpRequest;
-import com.jmo.jwttemplate.domain.auth.service.AuthService;
-import com.jmo.jwttemplate.domain.user.dto.response.UserResponse;
-import com.jmo.jwttemplate.global.common.BaseResponse;
-import com.jmo.jwttemplate.global.security.jwt.dto.Jwt;
+import com.toktok.domain.auth.dto.request.LoginRequest;
+import com.toktok.domain.auth.dto.request.ReissueRequest;
+import com.toktok.domain.auth.dto.request.SignUpRequest;
+import com.toktok.domain.auth.service.AuthService;
+import com.toktok.global.common.BaseResponse;
+import com.toktok.global.security.jwt.dto.Jwt;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/auth")

@@ -1,4 +1,4 @@
-package com.jmo.jwttemplate.global.config.swagger;
+package com.toktok.global.config.swagger;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -14,8 +14,8 @@ public class SwaggerConfig {
     public OpenAPI api() {
         return new OpenAPI()
                 .info(
-                        new Info().title("JWT Template API")
-                                .description("JWT Template API Reference for Developers")
+                        new Info().title("Toktok")
+                                .description("Toktok API Docs")
                                 .version("1.0.0")
                 )
                 .addSecurityItem(new SecurityRequirement().addList("Authorization"))

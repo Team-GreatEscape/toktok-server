@@ -1,4 +1,4 @@
-package com.jmo.jwttemplate.domain.auth.repository;
+package com.toktok.domain.auth.repository;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -17,11 +17,6 @@ public class RefreshTokenRepositoryImpl implements RefreshTokenRepository {
     @Override
     public String findByEmail(String email) {
         return redisTemplate.opsForValue().get("refreshToken:" + email);
-    }
-
-    @Override
-    public void deleteByEmail(String email) {
-        redisTemplate.delete("refreshToken:" + email);
     }
 
     @Override

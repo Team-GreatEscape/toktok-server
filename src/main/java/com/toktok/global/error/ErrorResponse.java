@@ -1,14 +1,9 @@
-package com.jmo.jwttemplate.global.error;
+package com.toktok.global.error;
 
-import lombok.Builder;
 import org.springframework.http.ResponseEntity;
 
-@Builder
-public record ErrorResponse(int status, String message) {
+public record ErrorResponse(int status, String message, String code) {
     public static ResponseEntity<ErrorResponse> of(CustomError error) {
-        return ResponseEntity.status(error.getStatus()).body(ErrorResponse.builder()
-                .status(error.getStatus())
-                .message(error.getMessage())
-                .build());
+        return ResponseEntity.status(error.getStatus()).body(new ErrorResponse(error.getStatus(), error.getMessage(), error.getCode()));
     }
 }

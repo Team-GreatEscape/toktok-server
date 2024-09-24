@@ -1,4 +1,4 @@
-package com.jmo.jwttemplate.global.error;
+package com.toktok.global.error;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

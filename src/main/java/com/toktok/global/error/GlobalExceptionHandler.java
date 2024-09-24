@@ -1,4 +1,4 @@
-package com.jmo.jwttemplate.global.error;
+package com.toktok.global.error;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

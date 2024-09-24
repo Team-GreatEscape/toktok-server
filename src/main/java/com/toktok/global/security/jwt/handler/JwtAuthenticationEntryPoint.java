@@ -1,4 +1,4 @@
-package com.jmo.jwttemplate.global.security.jwt.handler;
+package com.toktok.global.security.jwt.handler;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

@@ -1,4 +1,4 @@
-package com.jmo.jwttemplate.global.common;
+package com.toktok.global.common;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;

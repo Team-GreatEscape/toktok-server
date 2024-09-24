@@ -1,6 +1,6 @@
-package com.jmo.jwttemplate.domain.user.domain;
+package com.toktok.domain.user.domain;
 
-import com.jmo.jwttemplate.global.common.BaseEntity;
+import com.toktok.global.common.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;

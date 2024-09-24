@@ -1,4 +1,4 @@
-package com.jmo.jwttemplate.global.security.jwt.handler;
+package com.toktok.global.security.jwt.handler;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -12,7 +12,7 @@ import java.io.IOException;
 @Component
 public class JwtAccessDeniedHandler implements AccessDeniedHandler {
     @Override
-    public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException, ServletException {
+    public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException {
         response.sendError(HttpServletResponse.SC_FORBIDDEN);
     }
 }

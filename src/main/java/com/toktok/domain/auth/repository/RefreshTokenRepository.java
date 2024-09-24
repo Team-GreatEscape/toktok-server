@@ -1,11 +1,9 @@
-package com.jmo.jwttemplate.domain.auth.repository;
+package com.toktok.domain.auth.repository;
 
 public interface RefreshTokenRepository {
     void save(String email, String refreshToken);
 
     String findByEmail(String email);
-
-    void deleteByEmail(String email);
 
     Boolean existsByEmail(String email);
 }

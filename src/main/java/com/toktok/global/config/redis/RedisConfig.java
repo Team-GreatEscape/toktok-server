@@ -1,4 +1,4 @@
-package com.jmo.jwttemplate.global.config.redis;
+package com.toktok.global.config.redis;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.data.redis.RedisProperties;

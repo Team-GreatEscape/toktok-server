@@ -1,6 +1,6 @@
-package com.jmo.jwttemplate.global.security.jwt.filter;
+package com.toktok.global.security.jwt.filter;
 
-import com.jmo.jwttemplate.global.security.jwt.provider.JwtProvider;
+import com.toktok.global.security.jwt.provider.JwtProvider;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;

@@ -1,4 +1,4 @@
-package com.jmo.jwttemplate.global.config.jpa;
+package com.toktok.global.config.jpa;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;

@@ -1,6 +1,6 @@
-package com.jmo.jwttemplate.domain.user.repository;
+package com.toktok.domain.user.repository;
 
-import com.jmo.jwttemplate.domain.user.domain.User;
+import com.toktok.domain.user.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

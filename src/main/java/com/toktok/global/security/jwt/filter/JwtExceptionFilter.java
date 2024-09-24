@@ -1,8 +1,8 @@
-package com.jmo.jwttemplate.global.security.jwt.filter;
+package com.toktok.global.security.jwt.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jmo.jwttemplate.global.error.CustomError;
-import com.jmo.jwttemplate.global.error.CustomException;
+import com.toktok.global.error.CustomError;
+import com.toktok.global.error.CustomException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

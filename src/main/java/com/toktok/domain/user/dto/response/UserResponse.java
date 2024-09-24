@@ -1,6 +1,6 @@
-package com.jmo.jwttemplate.domain.user.dto.response;
+package com.toktok.domain.user.dto.response;
 
-import com.jmo.jwttemplate.domain.user.domain.UserRole;
+import com.toktok.domain.user.domain.UserRole;
 
 public record UserResponse(
         Long id,

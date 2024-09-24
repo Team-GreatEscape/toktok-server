@@ -1,15 +1,15 @@
-package com.jmo.jwttemplate.global.security.jwt.provider;
+package com.toktok.global.security.jwt.provider;
 
-import com.jmo.jwttemplate.domain.auth.repository.RefreshTokenRepository;
-import com.jmo.jwttemplate.domain.user.domain.User;
-import com.jmo.jwttemplate.domain.user.error.UserError;
-import com.jmo.jwttemplate.domain.user.repository.UserRepository;
-import com.jmo.jwttemplate.global.error.CustomException;
-import com.jmo.jwttemplate.global.security.details.CustomUserDetails;
-import com.jmo.jwttemplate.global.security.jwt.config.JwtProperties;
-import com.jmo.jwttemplate.global.security.jwt.dto.Jwt;
-import com.jmo.jwttemplate.global.security.jwt.enums.JwtType;
-import com.jmo.jwttemplate.global.security.jwt.error.JwtError;
+import com.toktok.domain.auth.repository.RefreshTokenRepository;
+import com.toktok.domain.user.domain.User;
+import com.toktok.domain.user.error.UserError;
+import com.toktok.domain.user.repository.UserRepository;
+import com.toktok.global.error.CustomException;
+import com.toktok.global.security.details.CustomUserDetails;
+import com.toktok.global.security.jwt.config.JwtProperties;
+import com.toktok.global.security.jwt.dto.Jwt;
+import com.toktok.global.security.jwt.enums.JwtType;
+import com.toktok.global.security.jwt.error.JwtError;
 import io.jsonwebtoken.*;
 import jakarta.annotation.PostConstruct;
 import jakarta.servlet.http.HttpServletRequest;

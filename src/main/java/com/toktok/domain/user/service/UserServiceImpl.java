@@ -1,10 +1,10 @@
-package com.jmo.jwttemplate.domain.user.service;
+package com.toktok.domain.user.service;
 
-import com.jmo.jwttemplate.domain.user.domain.User;
-import com.jmo.jwttemplate.domain.user.dto.response.UserResponse;
-import com.jmo.jwttemplate.domain.user.error.UserError;
-import com.jmo.jwttemplate.domain.user.repository.UserRepository;
-import com.jmo.jwttemplate.global.error.CustomException;
+import com.toktok.domain.user.domain.User;
+import com.toktok.domain.user.dto.response.UserResponse;
+import com.toktok.domain.user.error.UserError;
+import com.toktok.domain.user.repository.UserRepository;
+import com.toktok.global.error.CustomException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
