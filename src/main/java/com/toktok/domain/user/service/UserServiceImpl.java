@@ -6,6 +6,7 @@ import com.toktok.domain.user.error.UserError;
 import com.toktok.domain.user.repository.UserRepository;
 import com.toktok.global.error.CustomException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,14 +19,15 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional(readOnly = true)
     public UserResponse getMe() {
-        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
 
-        User user = userRepository.findByEmail(email)
+        User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new CustomException(UserError.USER_NOT_FOUND));
 
         return new UserResponse(
-                user.getId(),
+                user.getUsername(),
                 user.getEmail(),
+                user.getGender(),
                 user.getRole()
         );
     }

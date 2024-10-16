@@ -41,14 +41,14 @@ public class JwtProvider {
         );
     }
 
-    public Jwt generateToken(String email) {
+    public Jwt generateToken(String username) {
         Date now = new Date();
 
         String accessToken = Jwts.builder()
                 .header()
                 .type(JwtType.ACCESS.name())
                 .and()
-                .subject(email)
+                .subject(username)
                 .issuedAt(now)
                 .expiration(new Date(now.getTime() + jwtProperties.getAccessTokenExpiration()))
                 .signWith(key)
@@ -58,13 +58,13 @@ public class JwtProvider {
                 .header()
                 .type(JwtType.REFRESH.name())
                 .and()
-                .subject(email)
+                .subject(username)
                 .issuedAt(now)
                 .expiration(new Date(now.getTime() + jwtProperties.getRefreshTokenExpiration()))
                 .signWith(key)
                 .compact();
 
-        refreshTokenRepository.save(email, refreshToken);
+        refreshTokenRepository.save(username, refreshToken);
 
         return new Jwt(accessToken, refreshToken);
     }
@@ -76,7 +76,7 @@ public class JwtProvider {
             throw new CustomException(JwtError.INVALID_TOKEN_TYPE);
         }
 
-        User user = userRepository.findByEmail(claims.getSubject()).orElseThrow(() -> new CustomException(UserError.USER_NOT_FOUND));
+        User user = userRepository.findByUsername(claims.getSubject()).orElseThrow(() -> new CustomException(UserError.USER_NOT_FOUND));
 
         UserDetails details = new CustomUserDetails(user);
 

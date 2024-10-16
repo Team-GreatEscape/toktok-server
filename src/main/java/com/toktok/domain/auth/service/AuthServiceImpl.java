@@ -5,6 +5,7 @@ import com.toktok.domain.auth.dto.request.ReissueRequest;
 import com.toktok.domain.auth.dto.request.SignUpRequest;
 import com.toktok.domain.auth.error.AuthError;
 import com.toktok.domain.auth.repository.RefreshTokenRepository;
+import com.toktok.domain.user.domain.Gender;
 import com.toktok.domain.user.domain.User;
 import com.toktok.domain.user.domain.UserRole;
 import com.toktok.domain.user.error.UserError;
@@ -15,6 +16,7 @@ import com.toktok.global.security.jwt.enums.JwtType;
 import com.toktok.global.security.jwt.error.JwtError;
 import com.toktok.global.security.jwt.provider.JwtProvider;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,14 +32,19 @@ public class AuthServiceImpl implements AuthService {
     @Transactional
     @Override
     public void signup(SignUpRequest request) {
+        String username = request.username();
         String email = request.email();
         String password = request.password();
+        Gender gender = request.gender();
 
         if (userRepository.existsByEmail(email)) throw new CustomException(UserError.EMAIL_DUPLICATION);
+        if (userRepository.existsByUsername(username)) throw new CustomException(UserError.USERNAME_DUPLICATE);
 
         User user = User.builder()
+                .username(username)
                 .email(email)
                 .password(passwordEncoder.encode(password))
+                .gender(gender)
                 .role(UserRole.USER)
                 .build();
 
@@ -47,16 +54,16 @@ public class AuthServiceImpl implements AuthService {
     @Transactional(readOnly = true)
     @Override
     public Jwt login(LoginRequest request) {
-        String email = request.email();
+        String username = request.username();
         String password = request.password();
 
-        User user = userRepository.findByEmail(email)
+        User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new CustomException(UserError.USER_NOT_FOUND));
 
         if (!passwordEncoder.matches(password, user.getPassword()))
             throw new CustomException(AuthError.WRONG_PASSWORD);
 
-        return jwtProvider.generateToken(email);
+        return jwtProvider.generateToken(username);
     }
 
     @Override
@@ -66,16 +73,16 @@ public class AuthServiceImpl implements AuthService {
         if (jwtProvider.getType(refreshToken) != JwtType.REFRESH)
             throw new CustomException(JwtError.INVALID_TOKEN_TYPE);
 
-        String email = jwtProvider.getSubject(refreshToken);
+        String username = jwtProvider.getSubject(refreshToken);
 
-        if (!refreshTokenRepository.existsByEmail(email))
+        if (!refreshTokenRepository.existsByEmail(username))
             throw new CustomException(JwtError.INVALID_REFRESH_TOKEN);
 
-        if (!refreshTokenRepository.findByEmail(email).equals(refreshToken))
+        if (!refreshTokenRepository.findByEmail(username).equals(refreshToken))
             throw new CustomException(JwtError.INVALID_REFRESH_TOKEN);
 
-        if (!userRepository.existsByEmail(email)) throw new CustomException(UserError.USER_NOT_FOUND);
+        if (!userRepository.existsByUsername(username)) throw new CustomException(UserError.USER_NOT_FOUND);
 
-        return jwtProvider.generateToken(email);
+        return jwtProvider.generateToken(username);
     }
 }

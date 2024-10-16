@@ -1,14 +1,12 @@
 services:
-  postgres:
-    image: 'postgres:latest'
+  mysql:
+    image: 'mysql:latest'
     environment:
-      - 'POSTGRES_DB=toktok'
-      - 'POSTGRES_PASSWORD=toktok'
-      - 'POSTGRES_USER=toktok'
+      - 'MYSQL_ROOT_PASSWORD=root'
+      - 'MYSQL_DATABASE=toktok'
     ports:
-      - '5432:5432'
+      - '9998:3306'
   redis:
     image: 'redis:latest'
     ports:
-      - '6379:6379'
-    command: redis-server --requirepass toktok
+      - '9999:6379'
