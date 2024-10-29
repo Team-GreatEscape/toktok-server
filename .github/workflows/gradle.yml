@@ -34,13 +34,13 @@ jobs:
       uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
 
     - name: make application.yml
-        run: |
-          mkdir -p ./src/main/resources
-          touch ./src/main/resources/application.yml
-          echo "${{ secrets.APPLICATION }}" > ./src/main/resources/application.yml
+      run:
+        mkdir -p ./src/main/resources
+        touch ./src/main/resources/application.yml
+        echo "${{ secrets.APPLICATION }}" > ./src/main/resources/application.yml
           
 
-      - name: Build with Gradle
+     - name: Build with Gradle
         run: ./gradlew build -x test --parallel
 
       - name: Build Docker Image For Spring
