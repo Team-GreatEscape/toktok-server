@@ -44,6 +44,8 @@ jobs:
         uses: appleboy/ssh-action@v0.1.8
         with:
           host: ${{ secrets.LINUX_HOST }}
+          username: ${{ secrets.LINUX_USERNAME }}
+          key: ${{ secrets.LINUX_KEY }}
           script: |
             cd /
             docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
