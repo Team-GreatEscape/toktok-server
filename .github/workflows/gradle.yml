@@ -2,9 +2,9 @@ name: CD
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 permissions:
   contents: read
@@ -23,10 +23,9 @@ jobs:
 
       - name: make application.yml
         run: |
-          mkdir -p ./src/main/resources
-          touch ./src/main/resources/application.yml
-          echo "${{ secrets.APPLICATION }}" > ./src/main/resources/application.yml
-
+          mkdir -p ./src/master/resources
+          touch ./src/master/resources/application.yml
+          echo "${{ secrets.APPLICATION }}" > ./src/master/resources/application.yml
 
       - name: Build with Gradle
         run: ./gradlew build -x test --parallel
