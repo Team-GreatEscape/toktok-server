@@ -49,6 +49,6 @@ jobs:
           script: |
             cd /
             docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
-            docker compose -f docker-compose.yml stop toktok
-            docker compose -f docker-compose.yml rm -f toktok
-            docker compose -f docker-compose.yml up toktok --pull always -d
+            #docker compose -f docker-compose.yml stop toktok
+            #docker compose -f docker-compose.yml rm -f toktok
+            #docker compose -f docker-compose.yml up toktok --pull always -d
