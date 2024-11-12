@@ -38,7 +38,7 @@ public class JwtProvider {
     protected void init() {
         key = new SecretKeySpec(
                 jwtProperties.getSecretKey().getBytes(StandardCharsets.UTF_8),
-                Jwts.SIG.HS512.key().build().getAlgorithm()
+                Jwts.SIG.HS256.key().build().getAlgorithm()
         );
     }
 
