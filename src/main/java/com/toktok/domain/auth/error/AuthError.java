@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum AuthError implements CustomError {
+
     WRONG_PASSWORD(400, "Wrong password"),
     ;
 

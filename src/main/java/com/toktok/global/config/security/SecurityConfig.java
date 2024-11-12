@@ -21,6 +21,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @Configuration
 @RequiredArgsConstructor
 public class SecurityConfig {
+
     private static final String USER = "ROLE_USER";
     private static final String ADMIN = "ROLE_ADMIN";
 

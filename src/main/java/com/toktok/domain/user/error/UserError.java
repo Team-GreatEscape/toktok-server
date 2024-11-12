@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum UserError implements CustomError {
+
     USER_NOT_FOUND(400, "User not found"),
     USERNAME_DUPLICATE(400, "Username already exists"),
     EMAIL_DUPLICATION(400, "Email is already in use"),

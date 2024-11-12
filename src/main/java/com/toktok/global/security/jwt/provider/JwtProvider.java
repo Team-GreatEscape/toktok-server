@@ -28,6 +28,7 @@ import java.util.Date;
 @Component
 @RequiredArgsConstructor
 public class JwtProvider {
+
     private final JwtProperties jwtProperties;
     private final UserRepository userRepository;
     private final RefreshTokenRepository refreshTokenRepository;

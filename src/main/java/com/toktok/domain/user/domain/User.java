@@ -7,15 +7,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-@Entity
 @Table(name = "users")
+@Entity
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @SuperBuilder
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class User extends BaseEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column
+    private String avatarProfile;
 
     @Column(nullable = false, unique = true)
     private String username;

@@ -3,6 +3,7 @@ package com.toktok.global.security.jwt.filter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.toktok.global.error.CustomError;
 import com.toktok.global.error.CustomException;
+import jakarta.annotation.Nullable;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -16,12 +17,15 @@ import java.util.Map;
 
 @Component
 public class JwtExceptionFilter extends OncePerRequestFilter {
+
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(@Nullable HttpServletRequest request, @Nullable HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         try {
             filterChain.doFilter(request, response);
         } catch (CustomException e) {
-            sendErrorResponse(response, e);
+            if (response != null) {
+                sendErrorResponse(response, e);
+            }
         }
     }
 
